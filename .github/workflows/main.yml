@@ -18,8 +18,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Add x86_64-linux platform
-      run: bundle lock --add-platform x86_64-linux
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
