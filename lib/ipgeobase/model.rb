@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'happymapper'
+
 module Ipgeobase
   module Model
     class IpMeta

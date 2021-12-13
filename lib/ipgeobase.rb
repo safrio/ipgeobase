@@ -2,7 +2,6 @@
 
 require_relative 'ipgeobase/version'
 require 'rest-client'
-require 'happymapper'
 require 'resolv'
 require 'addressable/template'
 require_relative 'ipgeobase/model'
@@ -10,7 +9,7 @@ require_relative 'ipgeobase/model'
 module Ipgeobase
   include Model
 
-  API_URL = 'http://ip-api.com/xml/{ip}'
+  API_URL = 'http://ip-sapi.com/xml/{ip}'
 
   def self.lookup(ip)
     validate(ip)
@@ -18,7 +17,7 @@ module Ipgeobase
     address = Addressable::Template.new(API_URL).expand({ ip: ip }).to_s
     response = RestClient.get(address)
     IpMeta.parse(response)
-  rescue StandardError => e
+  rescue => e
     raise "Can't obtain geodata: #{e.message}"
   end
 
