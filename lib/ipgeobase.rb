@@ -9,7 +9,7 @@ require_relative 'ipgeobase/model'
 module Ipgeobase
   include Model
 
-  API_URL = 'http://ip-sapi.com/xml/{ip}'
+  API_URL = 'http://ip-api.com/xml/{ip}'
 
   def self.lookup(ip)
     validate(ip)
