@@ -17,7 +17,7 @@ module Ipgeobase
     address = Addressable::Template.new(API_URL).expand({ ip: ip }).to_s
     response = RestClient.get(address)
     IpMeta.parse(response)
-  rescue => e
+  rescue RestClient::RequestError, SocketError => e
     raise "Can't obtain geodata: #{e.message}"
   end
 

@@ -26,7 +26,7 @@ class IpgeobaseTest < Minitest::Test
   end
 
   def test_lookup_incorrect_ip
-    assert_raises RuntimeError do
+    assert_raises NameError do
       Ipgeobase.lookup('incorrect_ip')
     end
   end
